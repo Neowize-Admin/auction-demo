@@ -1,0 +1,33 @@
+(function (app, $) {
+	
+	app.powerreviews = {
+		readReviews : function(){
+			$("#pdpReviewsTabInput").next('label').trigger("click");
+			$('html, body').animate({scrollTop: $("#pdpReviewsTab").offset().top}, 500);
+		},
+		readQuestions : function(){
+			$("#pdpQuestionsTabInput").next('label').trigger("click");
+			$('html, body').animate({scrollTop: $("#pdpQuestionsTab").offset().top}, 500);
+		},
+		// These functions dynamically capture current Product ID and construct URLs to Review and QA Pipelines.
+		redirectReview : function(url) {
+			window.location.replace(url + "?pid=" + $('#pid').val());
+		},
+		redirectQA : function(url) {
+			window.location.replace(url + "&pid=" + $('#pid').val());
+		}
+	};
+		
+	(function () {
+		$('#pdpMain').on('click', '.prPaClicker', function () {
+			var tabHeight = $(this).closest("#pdpQuestionsTab").outerHeight() + $(this).closest('.tab').outerHeight();
+			
+			$(this).closest('.product-info').outerHeight(tabHeight);
+		});
+		$('#pdpMain').on('click', '.pr-review-helpful-text-link', function () {
+			var tabHeight = $(this).closest("#pdpReviewsTab").outerHeight() + $(this).closest('.tab').outerHeight();
+			
+			$(this).closest('.product-info').outerHeight(tabHeight);
+		});
+	})();
+}(window.app = window.app || {}, jQuery));
