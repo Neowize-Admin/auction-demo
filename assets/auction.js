@@ -309,7 +309,7 @@ function init_auction_widget()
     // create divs for next items
     var nextItem = auction1.find(".next-bid-item");
     auctions[0].nextItems = [nextItem];
-    for (var i = 0; i < 4; ++i) {
+    for (var i = 0; i < 6; ++i) {
         var curr = nextItem.clone();
         auctions[0].nextItems.push(curr);
         nextItem.after(curr);
