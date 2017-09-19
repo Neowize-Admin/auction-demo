@@ -49,17 +49,20 @@ items = [
     new ItemData("Prince & Fox Light Wash Chambray Button Down", "assets/item7.jpg", 54.50),
     new ItemData("Long Sleeve Plaid Woven Shirt", "assets/item8.jpg", 49.50),
     new ItemData("Long Sleeve Plaid Woven Shirt", "assets/item9.jpg", 28.50),
+    new ItemData("Solid Tipped Pique; Polo", "assets/item10.jpg", 29.50),
+    new ItemData("Striped Throwback Jersey Polo", "assets/item11.jpg", 34.50),
+    new ItemData("BKYN 56 Roses Split-Graphic Crew Sweatshirt", "assets/item12.jpg", 44.50),
 
 ];
+for (var i = 0; i < items.length; ++i) {
+    items[i].index = i;
+}
 
 // hold data and state about ongoing auction
 function AuctionData(element)
 {
     // store the html element holding this auction data (should be jquery set)
     this.element = element;
-
-    // reset auction
-    this.resetAuction();
 }
 
 
@@ -93,6 +96,11 @@ AuctionData.prototype = {
     // index for the next auction item we'll show
     next_item_index: 0,
 
+    // init auction data (must be called once after everything is created)
+    init: function() {
+        this.resetAuction();
+    },
+
     // reset auction with a given item
     resetAuction: function(itemData) {
 
@@ -109,6 +117,20 @@ AuctionData.prototype = {
         this.bidIncreaseAmount = 2;
         this.leadingBidder = "";
         this.is_done = false;
+
+        // update next bids carousel
+        var nextItems = this.nextItems;
+        var index = itemData.index + 1;
+        for (var i = 0; i < nextItems.length; ++i) {
+
+            // get curr 'next-item' div
+            var curr = $(nextItems[i]);
+
+            // update image
+            var data = items[index++];
+            curr.find('img').attr('src', data.img);
+        }
+        $('#next-items-car')[0].slick.refresh()
 
         // decide how many bids this auction will get
         this.bidsToEmulate = 1 + Math.round((Math.random() * 5) + (Math.random() * 5));
@@ -183,10 +205,7 @@ AuctionData.prototype = {
         this.element.find(".item-title").text(this.itemData.name);
 
         // update image
-        this.element.find(".lot-image").attr('src', this.itemData.img);
-
-        // update next item image
-        this.element.find(".next-lot-image").attr('src', items[this.next_item_index].img);
+        this.element.find(".lot-image").first().attr('src', this.itemData.img);
 
         // update original price and discount
         var originPrice = this.element.find(".retail");
@@ -287,14 +306,49 @@ function init_auction_widget()
     // init auctions
     auctions.push(new AuctionData(auction1));
 
+    // create divs for next items
+    var nextItem = auction1.find(".next-bid-item");
+    auctions[0].nextItems = [nextItem];
+    for (var i = 0; i < 4; ++i) {
+        var curr = nextItem.clone();
+        auctions[0].nextItems.push(curr);
+        nextItem.after(curr);
+    }
+
+    // get bids starting dates
+    var startingNextBidsTime = new Date();
+    startingNextBidsTime.setHours(startingNextBidsTime.getHours() + 1)
+    startingNextBidsTime.setMinutes(0);
+    var currTimestamp = startingNextBidsTime.getTime() / 1000;
+
+    // init next items info
+    var nextItems = auction1.find(".next-bid-item");
+    for (var i = 0; i < nextItems.length; ++i) {
+
+        // get curr 'next-item' div
+        var curr = $(nextItems[i]);
+
+        // set item time
+        var currTimeObj = new Date(currTimestamp*1000);
+        curr.find("p").text("Start at " + String(currTimeObj).split(' ')[4].slice(0, -3));
+
+        // increase timestamp
+        currTimestamp += 60 * 30;
+    }
+
     // init next items carusel
     $('#next-items-car').slick({
         infinite: true,
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
     });
+
+    // init all auctions
+    for (var i = 0; i < auctions.length; ++i) {
+        auctions[i].init();
+    }
 
     // show screen after done loading
     $("#loading-black-cover").fadeOut(500);
