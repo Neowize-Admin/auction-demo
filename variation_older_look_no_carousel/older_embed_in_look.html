@@ -2219,6 +2219,7 @@ Refer a Friend
 		.auction-widget-slot-grid-wrapper {
 			display: inline-block;
 			margin: 0;
+			margin-bottom: 30px;
 			padding-left: 20px;
 			padding-right: 20px;
 		}
@@ -2249,10 +2250,9 @@ Refer a Friend
 <!-- THE AUCTION WIDGET -->
 
 
-	<div class="row" style="background: url(assets/widget_back.png); padding: 25px; 25px; 15px; 15px; margin-bottom: 30px; overflow: hidden; position: relative; z-index:100000000000;">
-
-		<h1 style="margin-bottom: 5px; padding-bottom: 10px; border-bottom: none; color:white; text-transform:none;"><img src="assets/client_site_logo_inv.png" /> &nbsp;special auction! <span style="float:right; color:#d6d6d6; font-size:50%;">Powered by <a style="color:#003764" href="http://neowize.com/" target="_blank">NeoWize</a></span></h1>
-		<div id="auction-1" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 slot-grid-wrapper auction-widget-slot-grid-wrapper" style="margin-bottom: -40px;">
+	<div class="row">
+		<h1 style="margin-bottom: 5px; padding-bottom: 10px;">Aeropostale special auction! <span style="float:right; color:#afafaf; font-size:50%;">Powered by <a href="http://neowize.com/" target="_blank">NeoWize</a></span></h1>
+		<div id="auction-1" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 slot-grid-wrapper auction-widget-slot-grid-wrapper">
 			<div class="slot-wrapper">
 
 				<div class="row">
@@ -2268,16 +2268,16 @@ Refer a Friend
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-left col-right bid-wrapper" style="display:inline-block; position:relative">
 
 						<!-- item name -->
-						<h4><span style="color:#003764" class="item-title"></span></h4>
+						<h5><span style="color:rgb(69, 36, 160)" class="item-title"></span></h5>
 
 						<!-- original price and current discount -->
 						<div class="row" style="margin-bottom: 10px;">
-							<div class="high-bidder" style="color: white; text-align:  center;font-size: 70%; line-height:160%">Original Price</div>
+							<div class="high-bidder" style="color: rgb(153, 153, 153);text-align:  center;font-size: 70%; line-height:160%">Original Price</div>
 							<div class="col-xs-5" style="padding-right: 0;display: inline-block;">
-								<div class="retail" style="color: white; display: inline-block;">$189</div>
+								<div class="retail" style="color: rgb(153, 153, 153);display: inline-block; text-decoration: line-through;">$189</div>
 							</div>
 							<div class="col-xs-7" style="padding-left: 7px;display: inline-block;">
-								<div class="discount" style="color: white; display: none;">90% OFF</div>
+								<div class="discount" style="color: rgb(0, 197, 180);display: inline-block;">90% OFF</div>
 							</div>
 						</div>
 
@@ -2292,7 +2292,7 @@ Refer a Friend
 						</div>
 
 						<!-- BID button -->
-						<button class="bid-button btn btn-lg btn-block btn-success" style="margin-bottom: 0px;" onclick="addBid();">
+						<button class="bid-button btn btn-lg btn-block btn-success" style="margin-bottom: 0px;">
 							<input class="bid-button-lot-id" type="hidden" value="52166717">
 							<input class="bid-button-amount" type="hidden" value="2">
 							<div class="row bid-button-text-wrapper">
@@ -2319,42 +2319,11 @@ Refer a Friend
 
 					<!-- info about next bid item-->
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-left col-right bid-wrapper bid-next-item-info hidden-sm2-down" style="display:inline-block; position:relative;">
-                        <div id="next-items-car">
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                        </div>
+						<p style="right: -20px; top:7px; padding-left:10px; padding-right:10px; color:white; z-index:100; position:absolute; background:rgba(0,0,0,0.5);"> Next item </p>
+						<img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; position: absolute; right: -20px; top: -90px; max-width: 140px;">
 					</div>
 
+					<hr class="hidden-xs-down" style="position:relative; top:-40px;" />
 				</div>
 			</div>
 		</div>
@@ -5750,35 +5719,4 @@ XXL
 
 
 
-<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><script type="text/javascript" async="" src="./origin_files/saved_resource"></script><div id="extoleClickMap"></div><iframe src="./origin_files/eps.html" style="display: none;"></iframe><script type="application/javascript" id="ywa-1505219718135-188706" class="ywa-10000" defer="" src="./origin_files/sp.pl.download"></script><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6826307231356079"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6528154592692799" width="0" height="0" alt="" src="./origin_files/0"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3592582981048986" width="0" height="0" alt="" src="./origin_files/0(1)"></div><img src="./origin_files/ep" width="1" height="1" style="display:none"><div id="criteo-tags-div" style="display: none;"><iframe height="0" width="0" src="./origin_files/dis.html" style="display: none;"></iframe></div>
-
-<style>
-	#disable-page-cover {
-	   position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0.80;
-		z-index: 100000;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-<div id="disable-page-cover"> </div>
-
-<!-- slick carousel -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.min.js"></script>
-
-<script>
-    $('#next-items-car').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
-</script>
-
-</body>
-</html>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><script type="text/javascript" async="" src="./origin_files/saved_resource"></script><div id="extoleClickMap"></div><iframe src="./origin_files/eps.html" style="display: none;"></iframe><script type="application/javascript" id="ywa-1505219718135-188706" class="ywa-10000" defer="" src="./origin_files/sp.pl.download"></script><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6826307231356079"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6528154592692799" width="0" height="0" alt="" src="./origin_files/0"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3592582981048986" width="0" height="0" alt="" src="./origin_files/0(1)"></div><img src="./origin_files/ep" width="1" height="1" style="display:none"><div id="criteo-tags-div" style="display: none;"><iframe height="0" width="0" src="./origin_files/dis.html" style="display: none;"></iframe></div></body></html>

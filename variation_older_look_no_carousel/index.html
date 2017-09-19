@@ -2249,7 +2249,7 @@ Refer a Friend
 <!-- THE AUCTION WIDGET -->
 
 
-	<div class="row" style="background: url(assets/widget_back.png); padding: 25px; 25px; 15px; 15px; margin-bottom: 30px; overflow: hidden; position: relative; z-index:100000000000;">
+	<div class="row" style="background: url(assets/widget_back.png); padding: 25px; 25px; 15px; 15px; margin-bottom: 30px; overflow: hidden;">
 
 		<h1 style="margin-bottom: 5px; padding-bottom: 10px; border-bottom: none; color:white; text-transform:none;"><img src="assets/client_site_logo_inv.png" /> &nbsp;special auction! <span style="float:right; color:#d6d6d6; font-size:50%;">Powered by <a style="color:#003764" href="http://neowize.com/" target="_blank">NeoWize</a></span></h1>
 		<div id="auction-1" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 slot-grid-wrapper auction-widget-slot-grid-wrapper" style="margin-bottom: -40px;">
@@ -2292,7 +2292,7 @@ Refer a Friend
 						</div>
 
 						<!-- BID button -->
-						<button class="bid-button btn btn-lg btn-block btn-success" style="margin-bottom: 0px;" onclick="addBid();">
+						<button class="bid-button btn btn-lg btn-block btn-success" style="margin-bottom: 0px;">
 							<input class="bid-button-lot-id" type="hidden" value="52166717">
 							<input class="bid-button-amount" type="hidden" value="2">
 							<div class="row bid-button-text-wrapper">
@@ -2319,40 +2319,8 @@ Refer a Friend
 
 					<!-- info about next bid item-->
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-left col-right bid-wrapper bid-next-item-info hidden-sm2-down" style="display:inline-block; position:relative;">
-                        <div id="next-items-car">
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                            <div class="next-bid-item">
-                                <p class="next-bid-start-time">At 15:00</p>
-                                <img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; max-width: 140px;">
-                            </div>
-                        </div>
+						<p style="right: -20px; top:7px; padding-left:10px; padding-right:10px; color:white; z-index:100; position:absolute; background:rgba(0,0,0,0.5);"> Next item </p>
+						<img class="img-responsive product-tile next-lot-image" src="assets/icon.png" style="height: 130px; width: auto; position: absolute; right: -20px; top: -90px; max-width: 140px;">
 					</div>
 
 				</div>
@@ -5767,18 +5735,5 @@ XXL
 	}
 </style>
 <div id="disable-page-cover"> </div>
-
-<!-- slick carousel -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.min.js"></script>
-
-<script>
-    $('#next-items-car').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
-</script>
-
 </body>
 </html>

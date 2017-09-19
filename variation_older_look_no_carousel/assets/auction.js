@@ -288,10 +288,3 @@ function init_auction_widget()
     auctions.push(new AuctionData(auction1));
 }
 setTimeout(init_auction_widget, 100);
-
-
-// add bid to a given auction index
-function addBid(auctionIndex) {
-    auctionIndex = auctionIndex || 0;
-    auctions[auctionIndex].addBid();
-}
