@@ -286,6 +286,18 @@ function init_auction_widget()
 
     // init auctions
     auctions.push(new AuctionData(auction1));
+
+    // init next items carusel
+    $('#next-items-car').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+
+    // show screen after done loading
+    $("#loading-black-cover").fadeOut(500);
 }
 setTimeout(init_auction_widget, 100);
 
