@@ -342,6 +342,7 @@ function init_auction_widget()
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
+        arrows: false,
         autoplaySpeed: 2000,
     });
 
