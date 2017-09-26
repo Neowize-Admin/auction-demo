@@ -330,7 +330,7 @@ function init_auction_widget()
 
         // set item time
         var currTimeObj = new Date(currTimestamp*1000);
-        curr.find("p").text("Start at " + String(currTimeObj).split(' ')[4].slice(0, -3));
+        curr.find("p").text("Starting at " + String(currTimeObj).split(' ')[4].slice(0, -3));
 
         // increase timestamp
         currTimestamp += 60 * 30;
