@@ -20,7 +20,7 @@ AuctionStepsData = [
     new AuctionStepData("ACCEPTING BIDS", 1, "#003764"),
     new AuctionStepData("GOING ONCE", 1.5, "#f3b223"),
     new AuctionStepData("GOING TWICE", 1.75, "#e05491"),
-    new AuctionStepData("", 2, "rgba(0, 0, 0, 0)"),
+    new AuctionStepData("_", 2, "rgba(0, 0, 0, 0)"),
     new AuctionStepData("NEXT", 1, "rgba(0, 0, 0, 0)"),
 ]
 
@@ -139,7 +139,7 @@ AuctionData.prototype = {
         this.timeForNextBid = Math.random() * 90;
 
         // show bid button and hide SOLD placeholder
-        this.element.find(".bid-button").first().show();
+        this.element.find(".bid-button").first().css('opacity', 1);
         this.element.find(".bid-button").last().hide();
         this.element.find('#currently-leading-info').show();
 
@@ -221,10 +221,11 @@ AuctionData.prototype = {
 
         // if its sold status put the sold placeholder button
         if (this.currStep == AuctionSteps.Sold) {
-            this.element.find(".bid-button").last().show().find(".bid-button-title").text("SOLD!");
-            this.element.find('#currently-leading-info').hide();
-            this.element.find(".bid-button").last().find(".bid-button-subtitle").text("$" + this.currBid + " WINNING BID!");
-            this.element.find(".bid-button").first().hide();
+            var bidBtn = this.element.find(".bid-button").first();
+            var soldBtn = this.element.find(".bid-button").last();
+            soldBtn.show();
+            soldBtn.find(".bid-button-title").text("SOLD!");
+            soldBtn.find(".bid-button-subtitle").text("$" + this.currBid + " WINNING BID!");
             this.bidsToEmulate = 0;
         }
 
@@ -232,7 +233,6 @@ AuctionData.prototype = {
         if (this.is_done) {
             var _this = this;
             clearInterval(this.interval);
-            this.element.find('#currently-leading-info').hide();
             this.element.find(".bid-button-title").last().text("NEW BID STARTING");
             this.element.find(".bid-button-subtitle").last().text("Stay tuned..");
             setTimeout(function() {
@@ -244,6 +244,11 @@ AuctionData.prototype = {
         if (this.currStepTimeLeft <= 0) {
             this.nextStep();
         }
+    },
+
+    // close the auction immediately
+    closeAuction: function() {
+        this.currStep = AuctionSteps.Sold;
     },
 
     // called when a bid is added
@@ -386,4 +391,10 @@ function generateName() {
 
     // return result
     return first + " " + last + ".";
+}
+
+// close current auction
+function closeAuction(auctionIndex) {
+    auctionIndex = auctionIndex || 0;
+    auctions[auctionIndex].closeAuction();
 }
