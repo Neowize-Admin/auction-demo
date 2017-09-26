@@ -2250,7 +2250,6 @@ Refer a Friend
 		@media (min-width: 575px) {
 			.bid-wrapper  {
 				width: 32%;
-				top: -40px;
 			}
 			.bid-next-item-info {
 				width: calc(100% - 64%) !important;
@@ -2267,6 +2266,11 @@ Refer a Friend
 			.item-img-div {
 				width: 100%;
 			}
+		}
+
+		.info-highlight {
+			color: #2b9f1c;
+			font-weight: bold;
 		}
 	</style>
 
@@ -2325,6 +2329,9 @@ Refer a Friend
 							</div>
 						</button>
 
+						<!-- currently winning bidder -->
+						<p id="currently-leading-info">Current winning bid is: <span class="info-highlight" id="current-winning-bid"></span> by <span class="info-highlight" id="current-winning-bidder"></span></p>
+
 						<!-- "SOLD" button placeholder when auction is done -->
 						<button class="bid-button btn btn-lg btn-block btn-success" style="margin-bottom: 0px; background: white;color: #999999;">
 							<input class="bid-button-lot-id" type="hidden" value="52166717">
@@ -2340,7 +2347,7 @@ Refer a Friend
 					</div>
 
 					<!-- info about next bid items -->
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-left col-right bid-wrapper bid-next-item-info hidden-sm2-down" style="display:inline-block; position:absolute; right:0px; top:127px; transform:scale(0.85);">
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-left col-right bid-wrapper bid-next-item-info hidden-sm2-down" style="display:inline-block; position:absolute; right:0px; top:156px; transform:scale(0.85);">
 						<h4 style="position:relative; margin-bottom:2px;">Coming up next:</h4>
                         <div id="next-items-car">
                             <div class="next-bid-item">

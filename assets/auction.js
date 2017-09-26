@@ -207,6 +207,10 @@ AuctionData.prototype = {
         // update image
         this.element.find(".lot-image").first().attr('src', this.itemData.img);
 
+        // update winning bid and bidder
+        this.element.find("#current-winning-bid").text(this.currBid + '$');
+        this.element.find("#current-winning-bidder").text(this.leadingBidder);
+
         // update original price and discount
         var originPrice = this.element.find(".retail");
         originPrice.text("$" + this.itemData.price);
@@ -217,9 +221,13 @@ AuctionData.prototype = {
         // if its sold status put the sold placeholder button
         if (this.currStep == AuctionSteps.Sold) {
             this.element.find(".bid-button").last().show().find(".bid-button-title").text("SOLD!");
+            this.element.find('#currently-leading-info').hide();
             this.element.find(".bid-button").last().find(".bid-button-subtitle").text("$" + this.currBid + " WINNING BID!");
             this.element.find(".bid-button").first().hide();
             this.bidsToEmulate = 0;
+        }
+        else {
+            this.element.find('#currently-leading-info').show();
         }
 
         // if done cancel the tick interval and set the timer to reset auction
@@ -241,6 +249,9 @@ AuctionData.prototype = {
 
     // called when a bid is added
     addBid: function(name) {
+
+        // if no name provided generate name
+        name = name || generateName();
 
         // reset step
         this.currStep = AuctionSteps.AcceptingBids;
@@ -360,5 +371,20 @@ setTimeout(init_auction_widget, 100);
 // add bid to a given auction index
 function addBid(auctionIndex) {
     auctionIndex = auctionIndex || 0;
-    auctions[auctionIndex].addBid();
+    auctions[auctionIndex].addBid("YOU!");
+}
+
+// generate a random name
+function generateName() {
+
+    // random first name
+    var possibleNames = ['Sophia', 'Jackson', 'Emma', 'Aiden', 'Olivia', 'Lucas', 'Ava', 'Liam', 'Mia', 'Noah', 'Isabella', 'Ethan', 'Riley', 'Mason', 'Aria', 'Caden', 'Zoe', 'Oliver', 'Charlotte', 'Elijah', 'Lily', 'Grayson', 'Layla', 'Jacob', 'Amelia', 'Michael', 'Emily', 'Benjamin', 'Madelyn', 'Carter', 'Aubrey', 'James', 'Adalyn', 'Jayden', 'Madison', 'Logan', 'Chloe', 'Alexander'];
+    var first = possibleNames[Math.floor(Math.random() * possibleNames.length)];
+
+    // random last name first character
+    var possibleLastNameChar = ['A', 'B', 'C', 'D', 'F', 'G', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
+    var last = possibleLastNameChar[Math.floor(Math.random() * possibleLastNameChar.length)];
+
+    // return result
+    return first + " " + last + ".";
 }
