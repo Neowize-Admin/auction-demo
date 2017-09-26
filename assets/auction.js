@@ -115,7 +115,7 @@ AuctionData.prototype = {
         this.currStep = AuctionSteps.AcceptingBids;
         this.currStepTimeLeft = 100;
         this.bidIncreaseAmount = 2;
-        this.leadingBidder = "";
+        this.leadingBidder = generateName();
         this.is_done = false;
 
         // update next bids carousel
@@ -141,6 +141,7 @@ AuctionData.prototype = {
         // show bid button and hide SOLD placeholder
         this.element.find(".bid-button").first().show();
         this.element.find(".bid-button").last().hide();
+        this.element.find('#currently-leading-info').show();
 
         // remove reference from prev item
         if (this.itemData) {
@@ -226,14 +227,12 @@ AuctionData.prototype = {
             this.element.find(".bid-button").first().hide();
             this.bidsToEmulate = 0;
         }
-        else {
-            this.element.find('#currently-leading-info').show();
-        }
 
         // if done cancel the tick interval and set the timer to reset auction
         if (this.is_done) {
             var _this = this;
             clearInterval(this.interval);
+            this.element.find('#currently-leading-info').hide();
             this.element.find(".bid-button-title").last().text("NEW BID STARTING");
             this.element.find(".bid-button-subtitle").last().text("Stay tuned..");
             setTimeout(function() {
